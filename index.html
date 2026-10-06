@@ -7,52 +7,73 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Pembayaran Kas Kelas</title>
+    <title>Kas Kelas Komputerisasi Akuntansi</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            padding: 20px;
             font-family: Arial, sans-serif;
             background: #f3f7f5;
+            color: #222;
         }
 
-        .container {
+        .wrapper {
+            width: 100%;
             max-width: 430px;
             margin: 30px auto;
+            padding: 15px;
         }
 
         .card {
-            background: white;
-            border-radius: 25px;
+            background: #ffffff;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,.12);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
 
         .header {
             background: #00a86b;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 32px 20px;
+        }
+
+        .header .icon {
+            font-size: 45px;
         }
 
         .header h1 {
-            margin: 0 0 8px;
+            margin: 8px 0;
             font-size: 27px;
         }
 
         .header p {
             margin: 0;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .content {
             padding: 25px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            margin: 0 0 5px;
+            font-size: 21px;
+        }
+
+        .title p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
         }
 
         label {
@@ -64,11 +85,18 @@
         input,
         select {
             width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
+            height: 50px;
+            padding: 0 14px;
             border: 1px solid #ddd;
             border-radius: 12px;
             font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #00a86b;
         }
 
         .gopay-box {
@@ -80,41 +108,54 @@
             margin-bottom: 22px;
         }
 
+        .gopay-title {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
         .gopay-number {
             color: #00a86b;
             font-size: 23px;
             font-weight: bold;
-            margin-top: 8px;
+            letter-spacing: 1px;
         }
 
-        .copy {
-            margin-top: 12px;
-            padding: 10px 15px;
-            border: 1px solid #00a86b;
+        .copy-button {
+            margin-top: 13px;
+            padding: 10px 16px;
             background: white;
             color: #00a86b;
+            border: 1px solid #00a86b;
             border-radius: 10px;
             font-weight: bold;
+            cursor: pointer;
         }
+
+        /*
+        ========================================
+        TOMBOL PEMBAYARAN
+        ========================================
+        */
 
         .pay-button {
             display: block;
             width: 100%;
             padding: 17px;
-            border-radius: 14px;
             background: #00a86b;
             color: white;
             text-align: center;
             text-decoration: none;
+            border-radius: 14px;
             font-size: 17px;
             font-weight: bold;
+            border: none;
         }
 
         .pay-button:active {
-            transform: scale(.98);
+            transform: scale(0.98);
         }
 
-        .info {
+        .note {
             text-align: center;
             color: #777;
             font-size: 13px;
@@ -122,19 +163,32 @@
             margin-top: 18px;
         }
 
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
     <div class="card">
 
+        <!-- HEADER -->
         <div class="header">
 
-            <h1>💰 KAS KELAS</h1>
+            <div class="icon">
+                💰
+            </div>
+
+            <h1>
+                KAS KELAS
+            </h1>
 
             <p>
                 Komputerisasi Akuntansi
@@ -143,8 +197,23 @@
         </div>
 
 
+        <!-- CONTENT -->
         <div class="content">
 
+            <div class="title">
+
+                <h2>
+                    Pembayaran Kas Online
+                </h2>
+
+                <p>
+                    Silakan lakukan pembayaran melalui GoPay
+                </p>
+
+            </div>
+
+
+            <!-- NAMA -->
             <label>
                 Nama Mahasiswa
             </label>
@@ -152,9 +221,10 @@
             <input
                 type="text"
                 id="nama"
-                placeholder="Masukkan nama">
+                placeholder="Masukkan nama mahasiswa">
 
 
+            <!-- NOMINAL -->
             <label>
                 Nominal Kas
             </label>
@@ -173,13 +243,18 @@
                     Rp20.000
                 </option>
 
+                <option value="25000">
+                    Rp25.000
+                </option>
+
             </select>
 
 
+            <!-- GOPAY -->
             <div class="gopay-box">
 
-                <div>
-                    💚 Pembayaran melalui GoPay
+                <div class="gopay-title">
+                    💚 Nomor GoPay Bendahara
                 </div>
 
                 <div class="gopay-number">
@@ -187,8 +262,9 @@
                 </div>
 
                 <button
-                    class="copy"
-                    onclick="copyNumber()">
+                    type="button"
+                    class="copy-button"
+                    onclick="salinNomor()">
 
                     📋 Salin Nomor
 
@@ -198,13 +274,21 @@
 
 
             <!--
-            GANTI LINK DI BAWAH INI
-            DENGAN PAYMENT LINK GOPAY RESMI
+            ==================================================
+            PAYMENT LINK GOPAY
+            ==================================================
+
+            GANTI URL DI BAWAH DENGAN PAYMENT LINK RESMI
+            YANG DIBUAT DARI GOPAY MERCHANT.
+
+            Contoh format:
+            https://info.gopay.co.id/a/xxxxx
+
+            ==================================================
             -->
 
             <a
-                id="bayar"
-                href="MASUKKAN_LINK_GOPAY_DI_SINI"
+                href="MASUKKAN_PAYMENT_LINK_GOPAY_DI_SINI"
                 class="pay-button">
 
                 💚 BAYAR SEKARANG
@@ -212,14 +296,21 @@
             </a>
 
 
-            <div class="info">
+            <div class="note">
 
-                Setelah klik BAYAR SEKARANG,
-                kamu akan diarahkan ke pembayaran GoPay.
+                Setelah menekan tombol,
+                kamu akan diarahkan ke proses pembayaran GoPay.
 
             </div>
 
         </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        Kas Kelas • Komputerisasi Akuntansi
 
     </div>
 
@@ -228,15 +319,32 @@
 
 <script>
 
-function copyNumber() {
+function salinNomor() {
 
-    navigator.clipboard.writeText(
-        "089655286269"
-    );
+    const nomor = "089655286269";
 
-    alert(
-        "Nomor GoPay berhasil disalin!"
-    );
+    navigator.clipboard.writeText(nomor)
+        .then(function () {
+
+            const tombol =
+                document.querySelector(".copy-button");
+
+            tombol.innerHTML =
+                "✓ Nomor Berhasil Disalin";
+
+            setTimeout(function () {
+
+                tombol.innerHTML =
+                    "📋 Salin Nomor";
+
+            }, 2000);
+
+        })
+        .catch(function () {
+
+            alert("Nomor GoPay: " + nomor);
+
+        });
 
 }
 
