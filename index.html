@@ -7,99 +7,84 @@
     <title>Kas Kelas Komputerisasi Akuntansi</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7f5;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            background: #f4f7f5;
+            font-family: Arial, sans-serif;
             padding: 20px;
         }
 
-        .container {
+        .card {
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             background: white;
-            padding: 30px 22px;
+            padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 25px rgba(0,0,0,.1);
         }
 
         h1 {
             margin-bottom: 8px;
-            font-size: 24px;
-        }
-
-        .subtitle {
-            color: #777;
-            margin-bottom: 25px;
         }
 
         .nomor {
             background: #f1f1f1;
             padding: 12px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             font-weight: bold;
         }
 
-        .bayar {
+        .btn-dana {
             display: block;
-            width: 100%;
-            padding: 15px;
-            background: #00a86b;
+            padding: 16px;
+            background: #118ee9;
             color: white;
             text-decoration: none;
             border-radius: 12px;
             font-size: 18px;
             font-weight: bold;
-            transition: 0.2s;
         }
 
-        .bayar:active {
-            transform: scale(0.97);
+        .btn-dana:active {
+            transform: scale(.97);
         }
 
         .info {
-            margin-top: 18px;
+            margin-top: 15px;
+            color: #777;
             font-size: 13px;
-            color: #888;
-            line-height: 1.5;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-    <h1>💚 Kas Kelas</h1>
+    <h1>💙 Kas Kelas</h1>
 
-    <div class="subtitle">
-        Komputerisasi Akuntansi
-    </div>
+    <p>Komputerisasi Akuntansi</p>
 
     <div class="nomor">
-        GoPay: 089655286269
+        DANA: 085692962385
     </div>
 
-    <!-- GANTI LINK DI BAWAH DENGAN PAYMENT LINK GOPAY RESMI -->
+    <!-- GANTI DENGAN LINK PEMBAYARAN DANA -->
     <a
-        class="bayar"
-        href="LINK_GO_PAY"
+        href="LINK_PAYMENT_DANA"
+        class="btn-dana"
     >
-        💳 BAYAR SEKARANG
+        💙 BAYAR DENGAN DANA
     </a>
 
     <div class="info">
-        Setelah menekan tombol, kamu akan diarahkan ke pembayaran GoPay.
+        Klik tombol untuk melanjutkan pembayaran.
     </div>
 
 </div>
