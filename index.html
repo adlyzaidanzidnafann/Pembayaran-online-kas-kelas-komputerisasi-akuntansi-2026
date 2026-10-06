@@ -65,4 +65,188 @@
         }
 
         .btn-bayar:hover {
-            background: #008f
+            background: #008f5a;
+            color: white;
+        }
+
+        .info {
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="card kas-card">
+
+        <!-- HEADER -->
+        <div class="header">
+
+            <h2>💰 KAS KELAS</h2>
+
+            <p class="mb-1">
+                Komputerisasi Akuntansi
+            </p>
+
+            <small>
+                Pembayaran Kas Online
+            </small>
+
+        </div>
+
+
+        <!-- ISI -->
+        <div class="card-body p-4">
+
+            <!-- NAMA -->
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Nama Mahasiswa
+                </label>
+
+                <input
+                    type="text"
+                    id="nama"
+                    class="form-control form-control-lg"
+                    placeholder="Contoh: Adly">
+
+            </div>
+
+
+            <!-- NOMINAL -->
+            <div class="mb-4">
+
+                <label class="form-label fw-bold">
+                    Nominal Kas
+                </label>
+
+                <select
+                    id="nominal"
+                    class="form-select form-select-lg">
+
+                    <option value="5000">
+                        Rp5.000
+                    </option>
+
+                    <option value="10000">
+                        Rp10.000
+                    </option>
+
+                    <option value="20000">
+                        Rp20.000
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- GOPAY -->
+            <div class="gopay-box text-center mb-4">
+
+                <div>
+                    💚 Bayar melalui GoPay
+                </div>
+
+                <div class="gopay-number">
+                    0896 5528 6269
+                </div>
+
+                <button
+                    type="button"
+                    onclick="copyNumber()"
+                    class="btn btn-outline-success mt-3">
+
+                    📋 Salin Nomor
+
+                </button>
+
+            </div>
+
+
+            <!-- TOMBOL -->
+            <button
+                type="button"
+                onclick="payment()"
+                class="btn btn-bayar w-100">
+
+                💚 BAYAR SEKARANG
+
+            </button>
+
+
+            <p class="info text-center mt-3 mb-0">
+
+                Setelah membayar, silakan simpan
+                bukti transaksi dan kirimkan kepada
+                bendahara kelas.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function copyNumber() {
+
+    const nomor = "089655286269";
+
+    navigator.clipboard.writeText(nomor);
+
+    alert(
+        "Nomor GoPay berhasil disalin!\n\n" +
+        nomor
+    );
+
+}
+
+
+function payment() {
+
+    const nama =
+        document.getElementById("nama").value;
+
+    const nominal =
+        document.getElementById("nominal").value;
+
+
+    if (nama.trim() === "") {
+
+        alert(
+            "Silakan masukkan nama terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    alert(
+        "Silakan buka aplikasi GoPay dan lakukan pembayaran.\n\n" +
+
+        "Nama: " + nama + "\n" +
+
+        "Nominal: Rp" +
+        Number(nominal).toLocaleString("id-ID") +
+
+        "\n\n" +
+
+        "Nomor GoPay:\n" +
+        "089655286269"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
